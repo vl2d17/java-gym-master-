@@ -36,7 +36,7 @@ public class Timetable {
     }
 
     public List<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek,
-                                                                            TimeOfDay timeOfDay) {
+                                                                  TimeOfDay timeOfDay) {
         TreeMap<TimeOfDay, List<TrainingSession>> daySchedule = timetable.get(dayOfWeek);
         List<TrainingSession> sessions = daySchedule.get(timeOfDay);
 

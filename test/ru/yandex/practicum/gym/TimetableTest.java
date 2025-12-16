@@ -2,6 +2,7 @@ package ru.yandex.practicum.gym;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class TimetableTest {
@@ -19,14 +20,14 @@ public class TimetableTest {
 
 
         List<TrainingSession> mondaySessions = timetable.getTrainingSessionsForDay(
-        DayOfWeek.MONDAY);
+                DayOfWeek.MONDAY);
         Assertions.assertEquals(1, mondaySessions.size());
         Assertions.assertEquals(singleTrainingSession, mondaySessions.get(0));
-        Assertions.assertEquals(new TimeOfDay(13,0),
+        Assertions.assertEquals(new TimeOfDay(13, 0),
                 mondaySessions.get(0).getTimeOfDay());
 
         List<TrainingSession> tuesdaySessions = timetable.getTrainingSessionsForDay(
-        DayOfWeek.TUESDAY);
+                DayOfWeek.TUESDAY);
         Assertions.assertTrue(tuesdaySessions.isEmpty());
     }
 
@@ -89,6 +90,7 @@ public class TimetableTest {
                 new TimeOfDay(14, 0));
         Assertions.assertTrue(sessions.isEmpty());
     }
+
     @Test
     void testMultipleSessionsAtSameTime() {
         Timetable timetable = new Timetable();
@@ -100,7 +102,7 @@ public class TimetableTest {
         Group group2 = new Group("Взрослая группа", Age.ADULT, 90);
 
         TrainingSession session1 = new TrainingSession(group1, coach1,
-                DayOfWeek.WEDNESDAY, new TimeOfDay(10,0));
+                DayOfWeek.WEDNESDAY, new TimeOfDay(10, 0));
         TrainingSession session2 = new TrainingSession(group2, coach2,
                 DayOfWeek.WEDNESDAY, new TimeOfDay(10, 0));
         TrainingSession session3 = new TrainingSession(group1, coach1,
@@ -150,7 +152,7 @@ public class TimetableTest {
                     day);
             Assertions.assertTrue(sessions.isEmpty());
             List<TrainingSession> sessionsAtTime = timetable.getTrainingSessionsForDayAndTime(
-                   day, new TimeOfDay(10, 0));
+                    day, new TimeOfDay(10, 0));
             Assertions.assertTrue(sessionsAtTime.isEmpty());
         }
     }
@@ -159,7 +161,7 @@ public class TimetableTest {
     void testSessionsOrderWithDifferentTimes() {
         Timetable timetable = new Timetable();
         Coach coach = new Coach("Страшная", "Анна", "Сергеевна");
-        Group group = new Group("Test group", Age.ADULT,55);
+        Group group = new Group("Test group", Age.ADULT, 55);
         // Создаем тренировки
         TrainingSession session1 = new TrainingSession(group, coach,
                 DayOfWeek.FRIDAY, new TimeOfDay(18, 30));
@@ -210,11 +212,11 @@ public class TimetableTest {
 
         //три тренировки для одного тренера
         timetable.addNewTrainingSession(new TrainingSession(group, coach,
-                DayOfWeek.MONDAY, new TimeOfDay(11,0)));
+                DayOfWeek.MONDAY, new TimeOfDay(11, 0)));
         timetable.addNewTrainingSession(new TrainingSession(group, coach,
-                DayOfWeek.WEDNESDAY, new TimeOfDay(15,15)));
+                DayOfWeek.WEDNESDAY, new TimeOfDay(15, 15)));
         timetable.addNewTrainingSession(new TrainingSession(group, coach,
-                DayOfWeek.FRIDAY, new TimeOfDay(19,45)));
+                DayOfWeek.FRIDAY, new TimeOfDay(19, 45)));
 
         Map<Coach, Integer> result = timetable.getCountByCoaches();
 
@@ -327,6 +329,7 @@ public class TimetableTest {
         }
         Assertions.assertEquals(count, totalSessions);
     }
+
     @Test
     void testTrainingSessionEqualsAndHashCode() {
         Coach coach1 = new Coach("Иванов", "Иван", "Иванович");

@@ -1,4 +1,5 @@
 package ru.yandex.practicum.gym;
+
 import java.util.Objects;
 
 public class TrainingSession {
@@ -19,6 +20,7 @@ public class TrainingSession {
         this.timeOfDay = timeOfDay;
     }
 
+
     public Group getGroup() {
 
         return group;
@@ -38,6 +40,7 @@ public class TrainingSession {
 
         return timeOfDay;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
