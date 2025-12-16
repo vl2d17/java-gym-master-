@@ -15,20 +15,20 @@ public class Group {
         this.duration = duration;
     }
 
-    public String getTitle() {
 
+
+    public String getTitle() {
         return title;
     }
 
     public Age getAge() {
-
         return age;
     }
 
     public int getDuration() {
-
         return duration;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
